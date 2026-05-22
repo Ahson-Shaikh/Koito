@@ -25,7 +25,7 @@ export default function ListensTable({
   const imgColSizeClasses = "py-3 min-w-8 sm:min-w-11";
   const imgSize = 32;
   const timeColClasses =
-    "text-(--color-fg-tertiary) pr-2 sm:pr-4 sm:text-sm min-w-[70px]";
+    "text-(--color-fg-tertiary) pr-2 sm:pr-4 sm:text-sm min-w-[95px]";
 
   return (
     <table className="table border-collapse mt-6 w-full">
