@@ -22,17 +22,21 @@ export default function ListensTable({
   onDelete,
 }: ListensTableProps) {
   const { user } = useAppContext();
+  const imgColSizeClasses = "py-3 min-w-8 sm:min-w-11";
+  const imgSize = 32;
+  const timeColClasses =
+    "text-(--color-fg-tertiary) pr-2 sm:pr-4 sm:text-sm min-w-[70px]";
 
   return (
-    <table className="table-fixed border-collapse mt-6 w-full">
+    <table className="table border-collapse mt-6 w-full">
       <tbody>
         {showNP && npData && (
           <tr className="group border-b border-(--color-bg-tertiary) relative last:border-b-0">
-            <td className="py-3 w-8 sm:w-11">
+            <td className={imgColSizeClasses}>
               <Link to={`/track/${npData.track.id}`}>
                 <Image
                   src={npData.track.image.small}
-                  size={32}
+                  size={imgSize}
                   alt={npData.track.title}
                 />
               </Link>
@@ -53,7 +57,7 @@ export default function ListensTable({
                 </Link>
               </div>
             </td>
-            <td className="text-(--color-fg-tertiary) pr-2 sm:pr-4 text-sm w-[105px]">
+            <td className={timeColClasses}>
               <div className="flex items-center justify-end gap-2">
                 <div className="h-1.5 w-1.5 rounded-full bg-(--color-primary)" />
                 {"Now Playing"}
@@ -66,11 +70,11 @@ export default function ListensTable({
             key={`last_listen_${item.time}`}
             className="group border-b border-(--color-bg-tertiary) relative last:border-b-0"
           >
-            <td className="py-3 w-8 sm:w-11">
+            <td className={imgColSizeClasses}>
               <Link to={`/track/${item.track.id}`}>
                 <Image
                   src={item.track.image.small}
-                  size={32}
+                  size={imgSize}
                   alt={item.track.title}
                 />
               </Link>
@@ -92,7 +96,7 @@ export default function ListensTable({
               </div>
             </td>
             <td
-              className="text-(--color-fg-tertiary) pr-2 sm:pr-4 text-sm text-end whitespace-nowrap w-[100px]"
+              className={`text-end sm:whitespace-nowrap text-wrap-balanced ${timeColClasses}`}
               title={new Date(item.time).toString()}
             >
               {timeSince(new Date(item.time))}
