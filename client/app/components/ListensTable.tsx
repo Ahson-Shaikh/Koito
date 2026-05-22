@@ -53,7 +53,7 @@ export default function ListensTable({
             </td>
             <td className="color-fg-tertiary pr-2 sm:pr-4 text-sm text-end whitespace-nowrap w-[100px]">
               <div className="sm:-mr-[18px] relative">
-                <div className="h-1.5 w-1.5 rounded-full bg-(--color-primary) absolute top-1.5 left-3" />
+                <div className="h-1.5 w-1.5 rounded-full bg-(--color-primary) absolute top-1.5 left-7 sm:left-3" />
                 {" Now Playing"}
               </div>
             </td>
