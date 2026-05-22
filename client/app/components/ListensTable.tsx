@@ -24,10 +24,10 @@ export default function ListensTable({
   const { user } = useAppContext();
 
   return (
-    <table className="table-fixed border-collapse mt-6 w-[350px] sm:w-full">
+    <table className="table-fixed border-collapse mt-6 w-full">
       <tbody>
         {showNP && npData && (
-          <tr className="group border-b-1 border-(--color-bg-tertiary) relative last:border-b-0">
+          <tr className="group border-b border-(--color-bg-tertiary) relative last:border-b-0">
             <td className="py-3 w-8 sm:w-11">
               <Link to={`/track/${npData.track.id}`}>
                 <Image
@@ -37,24 +37,26 @@ export default function ListensTable({
                 />
               </Link>
             </td>
-            <td className="w-[150px] sm:w-full">
-              {!hideArtists && (
-                <>
-                  <ArtistLinks artists={npData.track.artists} />
-                  {" — "}
-                </>
-              )}
-              <Link
-                className="hover:text-[--color-fg-secondary]"
-                to={`/track/${npData.track.id}`}
-              >
-                {npData.track.title}
-              </Link>
+            <td className="max-w-0 w-full px-2">
+              <div>
+                {!hideArtists && (
+                  <>
+                    <ArtistLinks artists={npData.track.artists} />
+                    {" — "}
+                  </>
+                )}
+                <Link
+                  className="hover:text-(--color-fg-secondary)"
+                  to={`/track/${npData.track.id}`}
+                >
+                  {npData.track.title}
+                </Link>
+              </div>
             </td>
-            <td className="color-fg-tertiary pr-2 sm:pr-4 text-sm text-end whitespace-nowrap w-[100px]">
-              <div className="sm:-mr-[18px] relative">
-                <div className="h-1.5 w-1.5 rounded-full bg-(--color-primary) absolute top-1.5 left-7 sm:left-3" />
-                {" Now Playing"}
+            <td className="text-(--color-fg-tertiary) pr-2 sm:pr-4 text-sm w-[105px]">
+              <div className="flex items-center justify-end gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-(--color-primary)" />
+                {"Now Playing"}
               </div>
             </td>
           </tr>
@@ -62,7 +64,7 @@ export default function ListensTable({
         {listens.map((item) => (
           <tr
             key={`last_listen_${item.time}`}
-            className="group border-b-1 border-(--color-bg-tertiary) relative last:border-b-0"
+            className="group border-b border-(--color-bg-tertiary) relative last:border-b-0"
           >
             <td className="py-3 w-8 sm:w-11">
               <Link to={`/track/${item.track.id}`}>
@@ -73,30 +75,32 @@ export default function ListensTable({
                 />
               </Link>
             </td>
-            <td className="w-[150px] sm:w-full">
-              {!hideArtists && (
-                <>
-                  <ArtistLinks artists={item.track.artists} />
-                  {" — "}
-                </>
-              )}
-              <Link
-                className="hover:text-(--color-fg-secondary)"
-                to={`/track/${item.track.id}`}
-              >
-                {item.track.title}
-              </Link>
+            <td className="max-w-0 w-full px-2">
+              <div>
+                {!hideArtists && (
+                  <>
+                    <ArtistLinks artists={item.track.artists} />
+                    {" — "}
+                  </>
+                )}
+                <Link
+                  className="hover:text-(--color-fg-secondary)"
+                  to={`/track/${item.track.id}`}
+                >
+                  {item.track.title}
+                </Link>
+              </div>
             </td>
             <td
-              className="color-fg-tertiary pr-2 sm:pr-4 text-sm text-end whitespace-nowrap w-[100px]"
+              className="text-(--color-fg-tertiary) pr-2 sm:pr-4 text-sm text-end whitespace-nowrap w-[100px]"
               title={new Date(item.time).toString()}
             >
-              <p className="sm:-mr-[18px]">{timeSince(new Date(item.time))}</p>
+              {timeSince(new Date(item.time))}
             </td>
-            <td className="pr-2 align-middle hidden sm:table">
+            <td className="hidden sm:table">
               <button
                 onClick={() => onDelete(item)}
-                className="absolute top-1/2 -translate-y-1/2 -right-5 opacity-0 group-hover:opacity-100 transition-opacity text-(--color-fg-tertiary) hover:text-(--color-error)"
+                className="absolute top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-(--color-fg-tertiary) hover:text-(--color-error)"
                 aria-label="Delete"
                 hidden={!user}
               >
