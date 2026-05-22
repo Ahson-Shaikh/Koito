@@ -41,7 +41,7 @@ export default function ListensTable({
                 />
               </Link>
             </td>
-            <td className="max-w-0 w-full px-2">
+            <td className="max-w-0 w-full px-2 py-2">
               <div>
                 {!hideArtists && (
                   <>
@@ -58,7 +58,7 @@ export default function ListensTable({
               </div>
             </td>
             <td className={timeColClasses}>
-              <div className="flex items-center justify-end gap-2">
+              <div className="flex items-center justify-end gap-2 text-end">
                 <div className="h-1.5 w-1.5 rounded-full bg-(--color-primary)" />
                 {"Now Playing"}
               </div>
@@ -79,7 +79,7 @@ export default function ListensTable({
                 />
               </Link>
             </td>
-            <td className="max-w-0 w-full px-2">
+            <td className="max-w-0 w-full px-2 py-2">
               <div>
                 {!hideArtists && (
                   <>
