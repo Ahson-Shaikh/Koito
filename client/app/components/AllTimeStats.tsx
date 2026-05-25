@@ -93,19 +93,35 @@ export function AllTimeStatsSkeleton() {
   return (
     <div>
       <CardHeader>All time stats</CardHeader>
-      <div className="mt-6 flex flex-col gap-2">
-        {barWidths.map((w, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <div
-              className="h-5 bg-secondary animate-pulse rounded-(--border-radius)"
-              style={{ width: 40 }}
-            />
-            <div
-              className="h-3 bg-secondary animate-pulse rounded-(--border-radius)"
-              style={{ width: w }}
-            />
-          </div>
-        ))}
+      <div className="flex gap-6">
+        <div className="mt-6 flex flex-col gap-2">
+          {barWidths.map((w, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <div
+                className="h-5 bg-secondary animate-pulse rounded-(--border-radius)"
+                style={{ width: 40 }}
+              />
+              <div
+                className="h-3 bg-secondary animate-pulse rounded-(--border-radius)"
+                style={{ width: w }}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-col gap-2">
+          {barWidths.map((w, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <div
+                className="h-5 bg-secondary animate-pulse rounded-(--border-radius)"
+                style={{ width: 40 }}
+              />
+              <div
+                className="h-3 bg-secondary animate-pulse rounded-(--border-radius)"
+                style={{ width: w }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
